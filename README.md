@@ -1,2 +1,3 @@
 # stamp-utils
-Stamp utilities
+
+Essential Stamp Utilities
