@@ -41,6 +41,25 @@ const MusicPlayer = compose(playerUI, soundCloud, youtube, spotify);
 const myPlayer = MusicPlayer();
 ```
 
+### isStamp()
+
+Take an any object and return `true` if the object is a stamp. Return `false` otherwise.
+
+```js
+(any) => Boolean
+```
+
+**Example**:
+
+```js
+const foo = compose();
+const isFooAStamp = isStamp(foo); // true
+
+const bar = {};
+const isBarAStamp = isStamp(bar); // false
+```
+
+
 ### init()
 
 Easily add initializer functions to your stamps. Take a function and return a stamp that runs the function when an instance is created.
