@@ -28,7 +28,7 @@ A composable is any factory function or Plain Old JavaScript Object (POJO) with 
 Take any number of stamps or descriptors (or both), and return a new stamp with the composed behaviors and properties.
 
 ```js
-compose(...stampsOrDescriptors) => stamp
+(...composables: Stamp||Descriptor) => Stamp
 ```
 
 **Example:** Create a music player that supports several music sources:
@@ -46,7 +46,7 @@ const myPlayer = MusicPlayer();
 Take an any object and return `true` if the object is a stamp. Return `false` otherwise.
 
 ```js
-(any) => Boolean
+(Any) => Boolean
 ```
 
 **Example**:
@@ -65,7 +65,7 @@ const isBarAStamp = isStamp(bar); // false
 Easily add initializer functions to your stamps. Take a function and return a stamp that runs the function when an instance is created.
 
 ```js
-init(func) => stamp
+(...Function) => Stamp
 ```
 
 **Example:** Log to the console every time a new instance is created.
