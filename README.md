@@ -28,7 +28,7 @@ A composable is any factory function or Plain Old JavaScript Object (POJO) with 
 Take any number of stamps or descriptors (or both), and return a new stamp with the composed behaviors and properties.
 
 ```js
-(...composables: Stamp||Descriptor) => Stamp
+(...composables: Stamp || Descriptor) => Stamp
 ```
 
 **Example:** Create a music player that supports several music sources:
