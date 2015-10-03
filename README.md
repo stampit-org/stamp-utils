@@ -34,7 +34,8 @@ compose(...stampsOrDescriptors) => stamp
 **Example:** Create a music player that supports several music sources:
 
 ```js
-const musicPlayer = compose(playerUI, soundCloud, youtube, spotify);
+const MusicPlayer = compose(playerUI, soundCloud, youtube, spotify);
+const myPlayer = MusicPlayer();
 ```
 
 ### init()
@@ -48,9 +49,9 @@ init(func) => stamp
 **Example:** Log to the console every time a new instance is created.
 
 ```js
-const instanceLogger = init(({ name }) => {
+const InstanceLogger = init(({ name }) => {
   console.log(`Created new instance: ${ name }`);
 });
 
-instanceLogger({ name: 'George' }); // Created new instance: George
+InstanceLogger({ name: 'George' }); // Created new instance: George
 ```
