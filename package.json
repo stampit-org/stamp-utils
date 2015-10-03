@@ -1,0 +1,36 @@
+{
+  "name": "compose",
+  "version": "1.0.0",
+  "description": "Create and compose stamps: Composable factory functions.",
+  "main": "build/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "babel-node test/index.js",
+    "watch": "watch 'npm -s run lint && npm -s test' source test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/stampit-org/stamp-utils.git"
+  },
+  "keywords": [
+    "stamp",
+    "stamps",
+    "compose",
+    "composition",
+    "prototypal",
+    "oo"
+  ],
+  "author": "Eric Elliott",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stampit-org/stamp-utils/issues"
+  },
+  "homepage": "https://github.com/stampit-org/stamp-utils#readme",
+  "devDependencies": {
+    "babel-eslint": "^4.1.3",
+    "eslint": "^1.6.0",
+    "lodash": "^3.10.1",
+    "tape": "^4.2.1",
+    "watch": "^0.16.0"
+  }
+}
