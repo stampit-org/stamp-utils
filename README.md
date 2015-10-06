@@ -20,6 +20,10 @@ Experimental. Not usable yet.
 
 A composable is any factory function or Plain Old JavaScript Object (POJO) with a stamp descriptor.
 
+## Reading Function Signatures
+
+This documentation uses the [rtype specification](https://github.com/ericelliott/rtype#rtype). `(param: type): returnType`
+
 
 ## What's included here?
 
