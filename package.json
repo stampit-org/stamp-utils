@@ -1,6 +1,6 @@
 {
   "name": "stamp-utils",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Create and compose stamps: Composable factory functions.",
   "main": "build/index.js",
   "scripts": {
