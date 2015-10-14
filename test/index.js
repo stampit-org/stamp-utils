@@ -1,3 +1,5 @@
-import './compose/index';
-import './is-stamp/index';
-import './init/index';
+import './compose';
+import './is-stamp';
+import './is-descriptor';
+import './is-composable';
+import './init';
