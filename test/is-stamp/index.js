@@ -22,4 +22,21 @@ test('isStamp()', nest => {
 
     assert.end();
   });
+
+  nest.test('recognize composables with omitted props', assert => {
+    const composable = Object.assign(() => {}, {
+      compose: Object.assign(() => {}, {
+        properties: {
+          foo: 'bar'
+        }
+      })
+    });
+
+    const actual = isStamp(composable);
+    const expected = true;
+
+    assert.deepEqual(actual, expected,
+      'Recognize composables with omitted props');
+    assert.end();
+  });
 });
