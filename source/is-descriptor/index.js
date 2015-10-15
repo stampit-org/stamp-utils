@@ -8,6 +8,7 @@ export default (obj) => {
     obj.staticProperties ||
     obj.deepStaticProperties ||
     obj.staticPropertyDescriptors ||
+    obj.initializers ||
     obj.configuration
   ) && true);
 };

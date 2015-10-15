@@ -4,12 +4,28 @@ import compose from '../../source/compose';
 import isDescriptor from '../../source/is-descriptor';
 
 test('isDescriptor', nest => {
-  nest.test('...with descriptor', assert => {
+  nest.test('...with descriptor.properties', assert => {
     const msg = 'should return true for descriptors';
     const descriptor = {
       properties: {
         foo: 'bar'
       }
+    };
+    const actual = isDescriptor(descriptor);
+    const expected = true;
+
+    assert.equal(actual, expected, msg);
+    assert.end();
+  });
+
+  nest.test('...with descriptor.initializers', assert => {
+    const msg = 'should return true for descriptors';
+    const descriptor = {
+      initializers: [
+        ({ instance }) => {
+          instance.foo = 'bar';
+        }
+      ]
     };
     const actual = isDescriptor(descriptor);
     const expected = true;
