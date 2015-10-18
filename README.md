@@ -45,6 +45,24 @@ const MusicPlayer = compose(playerUI, soundCloud, youtube, spotify);
 const myPlayer = MusicPlayer();
 ```
 
+
+### isComposable()
+
+Take an any object and return `true` if the object is a composable, e.g. POJO descriptor or stamp. Return `false` otherwise.
+
+```js
+(obj: any): boolean
+```
+
+### isDescriptor()
+
+Take an any object and return `true` if the object is a POJO (Plain Old JavaScript Object) descriptor. Return `false` otherwise.
+
+```js
+(obj: any): boolean
+```
+
+
 ### isStamp()
 
 Take an any object and return `true` if the object is a stamp. Return `false` otherwise.
