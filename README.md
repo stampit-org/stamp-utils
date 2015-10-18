@@ -32,7 +32,7 @@ This documentation uses the [rtype specification](https://github.com/ericelliott
 Take any number of stamps or descriptors (or both), and return a new stamp with the composed behaviors and properties.
 
 ```js
-(...composables: stamp || descriptor): stamp
+(...composables: stamp|descriptor[]): stamp
 ```
 
 **Example:** Create a music player that supports several music sources:
@@ -50,7 +50,7 @@ const myPlayer = MusicPlayer();
 Take an any object and return `true` if the object is a stamp. Return `false` otherwise.
 
 ```js
-(any): boolean
+(obj: any): boolean
 ```
 
 **Example**:
@@ -69,7 +69,7 @@ const isBarAStamp = isStamp(bar); // false
 Easily add initializer functions to your stamps. Take a function (or many functions) and return a stamp that runs the function when an instance is created.
 
 ```js
-(...func): stamp
+(...functions: Function[]): stamp
 ```
 
 **Example:** Log to the console every time a new instance is created.
