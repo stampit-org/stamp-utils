@@ -4,7 +4,7 @@ Essential Stamp Utilities
 
 ## Composition > Inheritance
 
-Stamp utils is a collection of utilities for the creation of **stamps: Composable factory functions**.
+Stamp utils is a collection of utilities for the creation of [**stamps: Composable factory functions**](https://github.com/stampit-org/stamp-specification).
 
 Stamps contain a method called `.compose()` which has properties attached to it that form a **stamp descriptor**. A stamp descriptor is a metadata object that tells the stamp how to create object instances. The stamp descriptor is like a recipe that tells any stamp-compatible function everything it needs to know to compose the stamp with other composables.
 
