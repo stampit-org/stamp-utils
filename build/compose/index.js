@@ -16,9 +16,9 @@ var _lodashCollectionMap = require('lodash/collection/map');
 
 var _lodashCollectionMap2 = _interopRequireDefault(_lodashCollectionMap);
 
-var _lodashLangIsObject = require('lodash/lang/isObject');
+var _lodashLangIsUndefined = require('lodash/lang/isUndefined');
 
-var _lodashLangIsObject2 = _interopRequireDefault(_lodashLangIsObject);
+var _lodashLangIsUndefined2 = _interopRequireDefault(_lodashLangIsUndefined);
 
 var getDescriptorProps = function getDescriptorProps(descriptorName, composables) {
   return (0, _lodashCollectionMap2['default'])(composables, function (composable) {
@@ -53,7 +53,7 @@ var createStamp = function createStamp(_ref) {
 
     initializers.forEach(function (initializer) {
       var returnValue = initializer.call(obj, options, { instance: obj, stamp: Stamp, args: [options].concat(args) });
-      if ((0, _lodashLangIsObject2['default'])(returnValue)) {
+      if (!(0, _lodashLangIsUndefined2['default'])(returnValue)) {
         obj = returnValue;
       }
     });
