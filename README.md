@@ -13,7 +13,7 @@ The compose method takes any number of composables and combines them with the cu
 
 ## Status
 
-Experimental. Not usable yet.
+Very new, but should be usable and API stable. Try it. Kick the tires. If you find any problems, please [open an issue](https://github.com/stampit-org/stamp-utils/issues/new) or pull request.
 
 
 ## What's a composable?
