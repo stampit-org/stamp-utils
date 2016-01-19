@@ -23,7 +23,7 @@ A composable is any factory function or Plain Old JavaScript Object (POJO) with 
 
 ## Reading Function Signatures
 
-This documentation uses the [rtype specification](https://github.com/ericelliott/rtype#rtype). `(param: type): returnType`
+This documentation uses the [rtype specification](https://github.com/ericelliott/rtype#rtype). `(param: Type) => ReturnType`
 
 
 ## What's included here?
@@ -33,7 +33,7 @@ This documentation uses the [rtype specification](https://github.com/ericelliott
 Take any number of stamps or descriptors (or both), and return a new stamp with the composed behaviors and properties.
 
 ```js
-(...composables: stamp|descriptor[]): stamp
+(...composables: Composable[]): Stamp
 ```
 
 **Example:** Create a music player that supports several music sources:
@@ -52,7 +52,7 @@ const myPlayer = MusicPlayer();
 Take an any object and return `true` if the object is a composable, e.g. POJO descriptor or stamp. Return `false` otherwise.
 
 ```js
-(obj: any): boolean
+(obj: Any) => Boolean
 ```
 
 ### isDescriptor()
@@ -60,7 +60,7 @@ Take an any object and return `true` if the object is a composable, e.g. POJO de
 Take an any object and return `true` if the object is a POJO (Plain Old JavaScript Object) descriptor. Return `false` otherwise.
 
 ```js
-(obj: any): boolean
+(obj: Any) => Boolean
 ```
 
 
@@ -69,7 +69,7 @@ Take an any object and return `true` if the object is a POJO (Plain Old JavaScri
 Take an any object and return `true` if the object is a stamp. Return `false` otherwise.
 
 ```js
-(obj: any): boolean
+(obj: Any) => Boolean
 ```
 
 **Example**:
@@ -88,7 +88,7 @@ const isBarAStamp = isStamp(bar); // false
 Easily add initializer functions to your stamps. Take a function (or many functions) and return a stamp that runs the function when an instance is created.
 
 ```js
-(...functions: Function[]): stamp
+(...functions: Function[]): Stamp
 ```
 
 **Example:** Log to the console every time a new instance is created.
