@@ -3,7 +3,7 @@
 
 Essential Stamp Utilities
 
-## Composition > Inheritance
+## Composition > Class Inheritance
 
 Stamp utils is a collection of utilities for the creation of [**stamps: Composable factory functions**](https://github.com/stampit-org/stamp-specification).
 
