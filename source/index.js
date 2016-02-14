@@ -1,6 +1,6 @@
 import compose from './compose';
 const isFunction = obj => typeof obj === 'function';
-const isObject = obj => typeof obj === 'function' || typeof obj === 'object';
+const isObject = obj => !!obj && (typeof obj === 'function' || typeof obj === 'object');
 
 const isDescriptor = obj => isObject(obj);
 
