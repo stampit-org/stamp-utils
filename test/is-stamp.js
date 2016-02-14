@@ -1,6 +1,5 @@
 import test from 'tape';
-import isStamp from '../../source/is-stamp';
-import compose from '../../source/compose';
+import {compose, isStamp} from '../source';
 
 test('isStamp()', nest => {
   nest.test('...with stamp input', assert => {
@@ -9,6 +8,16 @@ test('isStamp()', nest => {
 
     assert.equal(actual, expected,
       'should return true');
+
+    assert.end();
+  });
+
+  nest.test('...with simple function', assert => {
+    const actual = isStamp(() => {});
+    const expected = false;
+
+    assert.equal(actual, expected,
+      'should return false');
 
     assert.end();
   });

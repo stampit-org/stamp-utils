@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf build && mkdir build",
     "lint": "eslint .",
-    "test": "babel-node test/index.js",
+    "test": "tape -r babel/register test/index.js",
     "watch": "watch 'clear && npm -s run lint && npm -s test' source test",
     "prebuild": "npm run clean",
     "build": "babel -s -d build source",

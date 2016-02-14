@@ -1,9 +1,14 @@
 import compose from './compose';
-import init from './init';
-import isStamp from './is-stamp';
-import isDescriptor from './is-descriptor';
-import isComposable from './is-composable';
+const isFunction = obj => typeof obj === 'function';
+const isObject = obj => typeof obj === 'function' || typeof obj === 'object';
 
+const isDescriptor = obj => isObject(obj);
+
+const isStamp = obj => isFunction(obj) && isFunction(obj.compose) && isDescriptor(obj.compose);
+
+const isComposable = obj => isDescriptor(obj) || isStamp(obj);
+
+const init = (...functions) => compose({ initializers: [...functions] });
 
 export default compose;
 export { compose as compose };
