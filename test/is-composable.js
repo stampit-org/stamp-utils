@@ -1,7 +1,6 @@
 import test from 'tape';
 
-import compose from '../../source/compose';
-import isComposable from '../../source/is-composable';
+import {compose, isComposable} from '../source';
 
 test('isComposable', nest => {
   nest.test('...with stamp', assert => {
@@ -23,15 +22,6 @@ test('isComposable', nest => {
     };
     const actual = isComposable(descriptor);
     const expected = true;
-
-    assert.equal(actual, expected, msg);
-    assert.end();
-  });
-
-  nest.test('...with empty object', assert => {
-    const msg = 'should return false for empty objects';
-    const actual = isComposable({});
-    const expected = false;
 
     assert.equal(actual, expected, msg);
     assert.end();

@@ -75,6 +75,8 @@ Take an any object and return `true` if the object is a stamp. Return `false` ot
 **Example**:
 
 ```js
+import {isStamp} from 'stamp-utils';
+
 const foo = compose();
 const isFooAStamp = isStamp(foo); // true
 
