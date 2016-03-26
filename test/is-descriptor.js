@@ -1,6 +1,6 @@
 import test from 'tape';
 
-import {isDescriptor} from '../source';
+import {isDescriptor} from '../';
 
 test('isDescriptor', nest => {
   nest.test('...with rubbish', assert => {

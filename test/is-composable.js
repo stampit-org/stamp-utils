@@ -1,6 +1,6 @@
 import test from 'tape';
-
-import {compose, isComposable} from '../source';
+import compose from 'stamp-specification';
+import {isComposable} from '../';
 
 test('isComposable', nest => {
   nest.test('...with stamp', assert => {

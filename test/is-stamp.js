@@ -1,5 +1,7 @@
 import test from 'tape';
-import {compose, isStamp} from '../source';
+import _ from 'lodash';
+import compose from 'stamp-specification';
+import {isStamp} from '../';
 
 test('isStamp()', nest => {
   nest.test('...with stamp input', assert => {
@@ -33,8 +35,8 @@ test('isStamp()', nest => {
   });
 
   nest.test('recognize composables with omitted props', assert => {
-    const composable = Object.assign(() => {}, {
-      compose: Object.assign(() => {}, {
+    const composable = _.assign(() => {}, {
+      compose: _.assign(() => {}, {
         properties: {
           foo: 'bar'
         }

@@ -1,5 +1,5 @@
 import test from 'tape';
-import {init, isStamp} from '../source';
+import {init, isStamp} from '../';
 
 test('init()', nest => {
   nest.test('...with function input', assert => {

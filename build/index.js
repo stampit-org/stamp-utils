@@ -1,35 +1,39 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.init = exports.isComposable = exports.isStamp = exports.isDescriptor = undefined;
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+var _isFunction = require('lodash/isFunction');
 
-var _compose = require('./compose');
+var _isFunction2 = _interopRequireDefault(_isFunction);
 
-var _compose2 = _interopRequireDefault(_compose);
+var _isObject = require('lodash/isObject');
 
-var _init = require('./init');
+var _isObject2 = _interopRequireDefault(_isObject);
 
-var _init2 = _interopRequireDefault(_init);
+var _stampSpecification = require('stamp-specification');
 
-var _isStamp = require('./is-stamp');
+var _stampSpecification2 = _interopRequireDefault(_stampSpecification);
 
-var _isStamp2 = _interopRequireDefault(_isStamp);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _isDescriptor = require('./is-descriptor');
+var isDescriptor = exports.isDescriptor = _isObject2.default;
 
-var _isDescriptor2 = _interopRequireDefault(_isDescriptor);
+var isStamp = exports.isStamp = function isStamp(obj) {
+  return (0, _isFunction2.default)(obj) && (0, _isFunction2.default)(obj.compose) && isDescriptor(obj.compose);
+};
 
-var _isComposable = require('./is-composable');
+var isComposable = exports.isComposable = function isComposable(obj) {
+  return isDescriptor(obj) || isStamp(obj);
+};
 
-var _isComposable2 = _interopRequireDefault(_isComposable);
+var init = exports.init = function init() {
+  for (var _len = arguments.length, functions = Array(_len), _key = 0; _key < _len; _key++) {
+    functions[_key] = arguments[_key];
+  }
 
-exports['default'] = _compose2['default'];
-exports.compose = _compose2['default'];
-exports.isStamp = _isStamp2['default'];
-exports.isDescriptor = _isDescriptor2['default'];
-exports.isComposable = _isComposable2['default'];
-exports.init = _init2['default'];
+  return (0, _stampSpecification2.default)({ initializers: [].concat(functions) });
+};
 //# sourceMappingURL=index.js.map
