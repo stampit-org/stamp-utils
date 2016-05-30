@@ -1,5 +1,5 @@
 import test from 'tape';
-import compose from 'stamp-specification';
+import compose from 'compose';
 import {isComposable} from '../';
 
 test('isComposable', nest => {
