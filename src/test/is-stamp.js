@@ -1,6 +1,6 @@
 import test from 'tape';
 import _ from 'lodash';
-import compose from 'stamp-specification';
+import compose from 'compose';
 import {isStamp} from '../';
 
 test('isStamp()', nest => {
