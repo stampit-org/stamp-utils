@@ -1,10 +1,9 @@
-import isFunction from 'lodash/isFunction';
-import isObject from 'lodash/isObject';
-import assign from 'lodash/assign';
-import pick from 'lodash/pick';
-import flatten from 'lodash/flatten';
-import pickBy from 'lodash/pickBy';
-import assignWith from 'lodash/assignWith';
+import {
+  isFunction, isObject,
+  assign, assignWith,
+  pick, pickBy,
+  flatten
+} from 'lodash';
 
 import compose from './compose';
 
