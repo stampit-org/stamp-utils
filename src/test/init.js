@@ -2,6 +2,12 @@ import test from 'tape';
 import {init, isStamp} from '../';
 
 test('init()', nest => {
+  const f1 = () => {};
+  const f2 = () => {};
+  const f3 = () => {};
+  const f4 = () => {};
+  const f5 = () => {};
+
   nest.test('...with no arguments', assert => {
     const actual = isStamp(init());
     const expected = true;
@@ -13,7 +19,7 @@ test('init()', nest => {
   });
 
   nest.test('...with a single function input', assert => {
-    const actual = init(() => {}).compose.initializers.length;
+    const actual = init(f1).compose.initializers.length;
     const expected = 1;
 
     assert.equal(actual, expected,
@@ -23,7 +29,7 @@ test('init()', nest => {
   });
 
   nest.test('...with multiple arguments', assert => {
-    const actual = init(() => {}, () => {}, () => {}).compose.initializers.length;
+    const actual = init(f1, f2, f3).compose.initializers.length;
     const expected = 3;
 
     assert.equal(actual, expected,
@@ -33,8 +39,18 @@ test('init()', nest => {
   });
 
   nest.test('...with single array argument', assert => {
-    const actual = init([() => {}, () => {}, () => {}]).compose.initializers.length;
+    const actual = init([f1, f2, f3]).compose.initializers.length;
     const expected = 3;
+
+    assert.equal(actual, expected,
+      'should add entire array');
+
+    assert.end();
+  });
+
+  nest.test('...with multiple arguments and arrays', assert => {
+    const actual = init([f1, f2], f3, [f4, f5]).compose.initializers.length;
+    const expected = 5;
 
     assert.equal(actual, expected,
       'should add entire array');
