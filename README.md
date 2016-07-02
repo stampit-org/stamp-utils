@@ -130,6 +130,7 @@ const uri = Uri({host: 'example.com', port: 80, protocol: 'http://'});
 console.log(uri); // { host: 'example.com', port: 80 }
 ```
 
+Check out [Fun with Stamps](https://medium.com/@koresar/fun-with-stamps-episode-3-comparing-with-the-es2015-classes-e387ef041896#.sl51g3mav) for example of use case scenario.
 
 ### namespaced()
 
