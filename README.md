@@ -106,7 +106,7 @@ const george = InstanceLogger({ name: 'George' }); // Created new instance: Geor
 
 ### overrides()
 
-Assign the stamp options to an instantiated object using initializer.
+Assign the stamp options properties to the instantiated object.
 
 ```js
 (...keys?: String|[...String]) => Stamp
@@ -121,7 +121,7 @@ const uri = Uri({host: 'example.com', port: 80, protocol: 'http://'});
 console.log(uri); // { host: 'example.com', port: 80, protocol: 'http://' }
 ```
 
-**Example:** Assign some properties:
+**Example:** Assign only two properties:
 
 ```js
 const Uri = overrides('host', 'port');
@@ -133,7 +133,7 @@ console.log(uri); // { host: 'example.com', port: 80 }
 
 ### namespaced()
 
-Assign an object instance created from the same Stamp .  
+Takes the stamp's options, passes them by name to the given "child" stamps, and assigns the obtained results back to the original instance. 
 
 ```js
 (options: Object[String,Stamp]) => Stamp
@@ -143,8 +143,10 @@ Assign an object instance created from the same Stamp .
 
 ```js
 const Uri = overrides('host', 'port');
-const Connection = namespaced({uri: Uri});
+const Connection = namespaced({uri: Uri}); // create 'uri' property from 'Uri' stamp
 
-const connection = Connection({uri: {host: 'example.com', port: 80}});
+const connection = Connection({uri: {
+  host: 'example.com', port: 80, protocol: 'http://' // pass this to 'Uri' stamp
+}});
 console.log(connection); // { uri: { host: 'example.com', port: 80 } }
 ```
