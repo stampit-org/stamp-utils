@@ -3,6 +3,8 @@ import isObject from 'lodash/isObject';
 import assign from 'lodash/assign';
 import pick from 'lodash/pick';
 import flatten from 'lodash/flatten';
+import pickBy from 'lodash/pickBy';
+import assignWith from 'lodash/assignWith';
 
 import compose from './compose';
 
@@ -19,6 +21,18 @@ export const overrides = (...keys) => {
   return compose({
     initializers: [function (opt) {
       assign(this, flattenKeys.length === 0 ? opt : pick(opt, flattenKeys));
+    }]
+  });
+};
+
+export const namespaced = (keyStampMap) => {
+  const keyStampMapClone = pickBy(keyStampMap, isStamp);
+
+  return compose({
+    initializers: [function (opt) {
+      const optClone = pickBy(opt, (value, key) => keyStampMapClone[key]);
+      assignWith(optClone, keyStampMapClone, (innerOpt, stamp) => stamp(innerOpt));
+      assign(this, optClone);
     }]
   });
 };
