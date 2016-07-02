@@ -102,3 +102,49 @@ const InstanceLogger = init(({ name }) => {
 
 const george = InstanceLogger({ name: 'George' }); // Created new instance: George
 ```
+
+
+### overrides()
+
+Assign the stamp options to an instantiated object using initializer.
+
+```js
+(...keys?: String|[...String]) => Stamp
+```
+
+**Example:** Assign all properties:
+
+```js
+const Uri = overrides();
+
+const uri = Uri({host: 'example.com', port: 80, protocol: 'http://'});
+console.log(uri); // { host: 'example.com', port: 80, protocol: 'http://' }
+```
+
+**Example:** Assign some properties:
+
+```js
+const Uri = overrides('host', 'port');
+
+const uri = Uri({host: 'example.com', port: 80, protocol: 'http://'});
+console.log(uri); // { host: 'example.com', port: 80 }
+```
+
+
+### namespaced()
+
+Assign an object instance created from the same Stamp .  
+
+```js
+(options: Object[String,Stamp]) => Stamp
+```
+
+**Example:** Create `uri` property from the `Uri` stamp:
+
+```js
+const Uri = overrides('host', 'port');
+const Connection = namespaced({uri: Uri});
+
+const connection = Connection({uri: {host: 'example.com', port: 80}});
+console.log(connection); // { uri: { host: 'example.com', port: 80 } }
+```
