@@ -12,7 +12,7 @@ export const isStamp = obj => isFunction(obj) && isFunction(obj.compose) && isDe
 
 export const isComposable = obj => isDescriptor(obj) || isStamp(obj);
 
-export const init = (...functions) => compose({ initializers: [...functions] });
+export const init = (...functions) => compose({ initializers: flatten(functions) });
 
 export const overrides = (...keys) => {
   const flattenKeys = flatten(keys);
