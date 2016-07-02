@@ -42,4 +42,15 @@ test('namespaced()', nest => {
       'should not override property if it was not a stamp');
     assert.end();
   });
+
+  nest.test('...with no option but present stamp', assert => {
+    const stamp1 = compose({properties: { a: 1 }});
+    const stamp = namespaced({ level1: stamp1 });
+    const actual = stamp();
+    const expected = { level1: { a: 1 } };
+
+    assert.deepEqual(actual, expected,
+      'should create instance');
+    assert.end();
+  });
 });
