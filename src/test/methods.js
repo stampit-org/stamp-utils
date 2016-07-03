@@ -1,4 +1,5 @@
 import test from 'tape';
+import _ from 'lodash';
 import { methods, isStamp } from '../';
 
 test('methods()', nest => {
@@ -37,7 +38,7 @@ test('methods()', nest => {
   });
 
   nest.test('...creating instance', assert => {
-    const abc = Object.assign(a, b, c);
+    const abc = _.assign(a, b, c);
 
     const actual = Object.getPrototypeOf(methods(abc)());
     const expected = abc;
