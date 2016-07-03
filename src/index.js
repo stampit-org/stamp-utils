@@ -15,6 +15,8 @@ export const isComposable = obj => isDescriptor(obj) || isStamp(obj);
 
 export const init = (...functions) => compose({ initializers: flatten(functions) });
 
+export const methods = (...objects) => compose({ methods: assign(...objects) });
+
 export const overrides = (...keys) => {
   const flattenKeys = flatten(keys);
   return compose({
