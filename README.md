@@ -137,7 +137,7 @@ Check out [Fun with Stamps](https://medium.com/@koresar/fun-with-stamps-episode-
 Takes the stamp's options, passes them by name to the given "child" stamps, and assigns the obtained results back to the original instance. 
 
 ```js
-(options: Object[String,Stamp]) => Stamp
+(options: {String: Stamp}) => Stamp
 ```
 
 **Example:** Create `uri` property from the `Uri` stamp:
@@ -150,4 +150,25 @@ const connection = Connection({uri: {
   host: 'example.com', port: 80, protocol: 'http://' // pass this to 'Uri' stamp
 }});
 console.log(connection); // { uri: { host: 'example.com', port: 80 } }
+```
+
+
+### methods()
+
+Easily add methods to your stamps. Take an object (or many object) and return a stamp that adds those methods to a prototype when instance is created.
+
+```js
+(...methods: [...Object]) => Stamp
+```
+
+**Example:** Add `stringify` method to instance
+
+```js
+const Stringifiable = methods({ stringify() {
+  return JSON.stringify(this);
+}});
+
+const Named = compose(Stringifiable, overrides('name'));
+const george = Named({ name: 'George' });
+console.log(george.stringify()); // '{"name":"George"}'
 ```
