@@ -57,7 +57,7 @@ Take an any object and return `true` if the object is a composable, e.g. POJO de
 
 ### isDescriptor()
 
-Take an any object and return `true` if the object is a POJO (Plain Old JavaScript Object) descriptor. Return `false` otherwise.
+Take an any object and return `true` if the object is a stamp descriptor. Return `false` otherwise.
 
 ```js
 (obj: Any) => Boolean
@@ -90,7 +90,7 @@ const isBarAStamp = isStamp(bar); // false
 Easily add initializer functions to your stamps. Take a function (or many functions) and return a stamp that runs the function when an instance is created.
 
 ```js
-(...functions: [...Function]) => Stamp
+(...functions: Function|[...Function]) => Stamp
 ```
 
 **Example:** Log to the console every time a new instance is created.
