@@ -4,10 +4,7 @@ See https://github.com/stampit-org/stamp-specification
 The code is optimized to be as readable as possible.
  */
 
-import mergeWith from 'lodash/mergeWith';
-import assign from 'lodash/assign';
-import isFunction from 'lodash/isFunction';
-import isObject from 'lodash/isObject';
+import {mergeWith, assign, isFunction, isObject} from 'lodash';
 
 const isDescriptor = isObject;
 export const merge = (dst, src) => mergeWith(dst, src, (dstValue, srcValue) => {
@@ -23,8 +20,8 @@ export const merge = (dst, src) => mergeWith(dst, src, (dstValue, srcValue) => {
  * @returns {Function} The new factory function.
  */
 function createFactory(descriptor) {
-  return function Stamp(options, ...args) {
-    let obj = Object.create(descriptor.methods || {});
+  return function Stamp(options = {}, ...args) {
+    const obj = Object.create(descriptor.methods || {});
 
     merge(obj, descriptor.deepProperties);
     assign(obj, descriptor.properties);
