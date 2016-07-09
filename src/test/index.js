@@ -3,5 +3,5 @@ import './is-descriptor';
 import './is-composable';
 import './init';
 import './methods';
-import './overrides';
+import './assign-to-instance';
 import './namespaced';

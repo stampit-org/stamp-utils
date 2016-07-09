@@ -1,9 +1,9 @@
 import test from 'tape';
-import {overrides, isStamp} from '../';
+import {assignToInstance, isStamp} from '../';
 
-test('overrides()', nest => {
+test('assignToInstance()', nest => {
   nest.test('...with nothing', assert => {
-    const actual = isStamp(overrides());
+    const actual = isStamp(assignToInstance());
     const expected = true;
 
     assert.equal(actual, expected,
@@ -13,7 +13,7 @@ test('overrides()', nest => {
   });
 
   nest.test('...with multiple arguments', assert => {
-    const actual = overrides('a', 'b')({a: 1, b: 2, c: 3});
+    const actual = assignToInstance('a', 'b')({a: 1, b: 2, c: 3});
     const expected = {a: 1, b: 2};
 
     assert.deepEqual(actual, expected,
@@ -23,7 +23,7 @@ test('overrides()', nest => {
   });
 
   nest.test('...with single array argument', assert => {
-    const actual = overrides(['a', 'b'])({a: 1, b: 2, c: 3});
+    const actual = assignToInstance(['a', 'b'])({a: 1, b: 2, c: 3});
     const expected = {a: 1, b: 2};
 
     assert.deepEqual(actual, expected,
@@ -32,8 +32,8 @@ test('overrides()', nest => {
     assert.end();
   });
 
-  nest.test('...overrides all by default', assert => {
-    const actual = overrides()({a: 1, b: 2, c: 3});
+  nest.test('...assignToInstance all by default', assert => {
+    const actual = assignToInstance()({a: 1, b: 2, c: 3});
     const expected = {a: 1, b: 2, c: 3};
 
     assert.deepEqual(actual, expected,
@@ -42,8 +42,8 @@ test('overrides()', nest => {
     assert.end();
   });
 
-  nest.test('...overrides all with properties', assert => {
-    const stamp = overrides().compose({properties: {
+  nest.test('...assignToInstance all with properties', assert => {
+    const stamp = assignToInstance().compose({properties: {
       x: 0, a: 0
     }});
     const actual = stamp({a: 1, b: 2, c: 3});
@@ -55,8 +55,8 @@ test('overrides()', nest => {
     assert.end();
   });
 
-  nest.test('...overrides some with properties', assert => {
-    const stamp = overrides('a', 'b').compose({properties: {
+  nest.test('...assignToInstance some with properties', assert => {
+    const stamp = assignToInstance('a', 'b').compose({properties: {
       x: 0, a: 0
     }});
     const actual = stamp({a: 1, b: 2, c: 3});

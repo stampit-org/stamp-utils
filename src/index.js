@@ -17,7 +17,7 @@ export const init = (...functions) => compose({ initializers: flatten(functions)
 
 export const methods = (...objects) => compose({ methods: assign(...objects) });
 
-export const overrides = (...keys) => {
+export const assignToInstance = (...keys) => {
   const flattenKeys = flatten(keys);
   return compose({
     initializers: [function (opt) {
