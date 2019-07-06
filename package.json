@@ -14,7 +14,8 @@
     "prebuild": "npm run clean",
     "build": "babel -s -d build src",
     "update": "updtr",
-    "prepublish": "npm run clean && npm run lint && npm run test && npm run build"
+    "prepublish": "npm run snyk-protect; npm run clean && npm run lint && npm run test && npm run build",
+    "snyk-protect": "snyk protect"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,8 @@
     "watch": "1.0.1"
   },
   "dependencies": {
-    "lodash": "^4.6.1"
-  }
+    "lodash": "^4.6.1",
+    "snyk": "^1.192.3"
+  },
+  "snyk": true
 }
